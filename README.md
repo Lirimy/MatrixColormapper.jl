@@ -1,10 +1,6 @@
 # MatrixColormapper
 
-[![Build Status](https://travis-ci.org/Lirimy/MatrixColormapper.jl.svg?branch=master)](https://travis-ci.org/Lirimy/MatrixColormapper.jl)
-
-[![Coverage Status](https://coveralls.io/repos/Lirimy/MatrixColormapper.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/Lirimy/MatrixColormapper.jl?branch=master)
-
-[![codecov.io](http://codecov.io/github/Lirimy/MatrixColormapper.jl/coverage.svg?branch=master)](http://codecov.io/github/Lirimy/MatrixColormapper.jl?branch=master)
+[![Build Status](https://travis-ci.org/Lirimy/MatrixColormapper.jl.svg?branch=master)](https://travis-ci.org/Lirimy/MatrixColormapper.jl) [![Coverage Status](https://coveralls.io/repos/Lirimy/MatrixColormapper.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/Lirimy/MatrixColormapper.jl?branch=master) [![codecov.io](http://codecov.io/github/Lirimy/MatrixColormapper.jl/coverage.svg?branch=master)](http://codecov.io/github/Lirimy/MatrixColormapper.jl?branch=master)
 
 MatrixColormapper.jl converts matrices to images, according to colormap.
 
@@ -54,7 +50,7 @@ using ColorSchemes
 schemes # List color schemes
 set_colormap(ColorSchemes.alpine, 20)
 x = sinpi.(0:0.01:2) .+ sinpi.(0:0.01:2)'
-matshow(x, "auto") # In "auto" mode, matrix is scaled by (min, max).
+matshow(x, "auto") # In "auto" mode, matrix is scaled by (min, max)
 
 # Set range manually
 set_cm_range(-2, 2)
