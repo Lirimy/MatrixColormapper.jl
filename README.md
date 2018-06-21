@@ -66,5 +66,5 @@ matshow(x, "range")
 
 ## Acknowledgments
 
-MatrixColormapper.jl contains copy and modification of Plots.jl.
+MatrixColormapper.jl contains copy and modification of Plots.jl.  
 Plots.jl: Copyright (c) 2015: Thomas Breloff.
