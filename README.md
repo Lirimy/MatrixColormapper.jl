@@ -4,6 +4,13 @@
 
 MatrixColormapper.jl converts matrices to images, according to colormap.
 
+## Install
+
+Julia 0.6.x
+
+```julia
+Pkg.clone("https://github.com/Lirimy/MatrixColormapper.jl")
+```
 
 ## Sample Code
 
