@@ -1,5 +1,10 @@
 module MatrixColormapper
 
-# package code goes here
+	export
+		set_colormap,
+		set_cm_range,
+		matshow
+	
+	include("mat2im.jl")
 
 end # module
