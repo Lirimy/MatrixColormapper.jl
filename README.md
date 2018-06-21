@@ -4,7 +4,7 @@
 
 MatrixColormapper.jl converts matrices to images, according to colormap.
 
-## Install
+## Installation
 
 Julia 0.6.x
 
@@ -12,7 +12,7 @@ Julia 0.6.x
 Pkg.clone("https://github.com/Lirimy/MatrixColormapper.jl")
 ```
 
-## Sample Code
+## Usage
 
 ### Simple Show & Save
 
