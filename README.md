@@ -66,6 +66,12 @@ matshow(x, "range")
 
 ![cmap](https://user-images.githubusercontent.com/31124605/41717392-98f753a0-7594-11e8-94c3-f6590513cd60.png)
 
+Refer to [ColorSchemes Documentation](http://juliagraphics.github.io/ColorSchemes.jl/stable/basics.html) for generating custom colormaps.
+
+```julia
+grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]
+set_colormap(grays, 10)
+```
 
 ## Acknowledgments
 
