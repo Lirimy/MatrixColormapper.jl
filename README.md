@@ -9,12 +9,27 @@
 
 MatrixColormapper.jl shows matrices as images.
 
-```julia:Sample Code
+```julia: Sample of matrix showing and saving
 using MatrixColormapper
-matshow(rand(100, 100))
+
+img = matshow(rand(100, 100))
+#FileIO.save("sample.png", img)
 ```
 
 ![sample image](https://user-images.githubusercontent.com/31124605/41716042-2e327774-7590-11e8-9b3b-648877bcbf53.png)
 
+```julia: Animation sample
+using Plots
+using MatrixColormapper
+
+anim = Animation()
+for i in 1:10
+    img = matshow(rand(100, 100))
+    frame(anim, img)
+end
+
+gif(anim, "sample.gif")
+#mp4(anim, "sample.mp4")
+```
 
 
