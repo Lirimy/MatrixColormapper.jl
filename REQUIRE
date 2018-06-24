@@ -4,3 +4,4 @@ ColorTypes
 ImageMagick
 FileIO
 Plots
+IndirectArrays
