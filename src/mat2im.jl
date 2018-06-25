@@ -1,6 +1,7 @@
 import ColorTypes: Colorant
 import Plots: frame
 import FileIO: save
+import IndirectArrays: IndirectArray
 
 using Plots
 
@@ -38,7 +39,8 @@ function matshow(A::AbstractMatrix{T}, mode="none"::AbstractString) where T <: R
     end
     
     n = length(ccmap.cs)
-    getindex(ccmap.cs, clamp.(ceil.(Int, n*An), 1, n))
+    #getindex(ccmap.cs, clamp.(ceil.(Int, n*An), 1, n))
+    IndirectArray(clamp.(ceil.(Int, n*An), 1, n), ccmap.cs)
 end
 
 function Plots.frame(anim::Animation, img::AbstractMatrix{T}) where T<:Colorant
