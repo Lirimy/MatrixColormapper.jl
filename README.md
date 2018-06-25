@@ -7,6 +7,7 @@ MatrixColormapper.jl converts matrices to images, according to colormap.
 ## Installation
 
 Julia 0.6.x
+Requirements: ffmpeg, imagemagick
 
 ```julia
 Pkg.clone("https://github.com/Lirimy/MatrixColormapper.jl")
