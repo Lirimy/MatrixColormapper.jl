@@ -28,9 +28,9 @@ git:
 #  - if [ $TRAVIS_OS_NAME = osx ]; then brew install gcc; fi
 
 before_install:
-  sudo add-apt-repository -y ppa:mc3man/trusty-media
-  sudo apt-get -qq update
-  sudo apt-get install -y ffmpeg imagemagick
+  - sudo add-apt-repository -y ppa:mc3man/trusty-media
+  - sudo apt-get -qq update
+  - sudo apt-get install -y ffmpeg imagemagick
 
 ## uncomment the following lines to override the default test script
 #script:
