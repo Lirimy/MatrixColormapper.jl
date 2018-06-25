@@ -12,7 +12,7 @@ set_colormap(bnw, 3)
 @test MatrixColormapper.ccmap.cs[2] == RGB{Float64}(0.5, 0.5, 0.5)
 
 img = matshow([0 0; 1 1])
-@test typeof(img) == Array{ColorTypes.RGB{Float64},2}
+@test typeof(img[1]) == ColorTypes.RGB{Float64}
 
 anim = Animation()
 frame(anim, img)
