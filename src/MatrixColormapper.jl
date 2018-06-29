@@ -5,7 +5,9 @@ module MatrixColormapper
 	export
 		current_colormap,
 		set_colormap,
-		matshow
+		matshow,
+		openanim,
+		addframe
 	
 	include("mat2im.jl")
 

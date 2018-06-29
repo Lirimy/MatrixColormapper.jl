@@ -2,7 +2,7 @@ import ColorTypes: Colorant, RGB
 import ColorSchemes: colormap
 import IndirectArrays: IndirectArray
 import MappedArrays: mappedarray
-#import FileIO: save
+import FileIO: open, close, save, @format_str, Stream
 
 const CURRENT_COLORMAP = colormap("Blues", 256)
 current_colormap() = CURRENT_COLORMAP
@@ -20,4 +20,13 @@ function matshow(A::AbstractMatrix{T}; cmap=current_colormap()) where T <: Real
     
     f = s -> clamp(ceil(Int, 256*s), 1, 256)
     IndirectArray(mappedarray(f, A), cmap)
+end
+
+function openanim(f::Function, filename::AbstractString="out.mp4")
+    open(f, `ffmpeg -i pipe:0 -pix_fmt yuv420p -y $filename`, "w")
+    
+end
+
+function addframe(anim, img::AbstractMatrix)
+    save(Stream(format"BMP", anim), img)
 end
