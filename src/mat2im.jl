@@ -44,7 +44,7 @@ function openanim(f::Function, filename::AbstractString="out.mp4")
     
     if ext == "gif"
         palette = tempname() * ".bmp"
-        FileIO.save(palette, IndirectArrays.IndirectArray(reshape(1:256, 16, 16)', current_colormap()))
+        save(palette, IndirectArrays.IndirectArray(reshape(1:256, 16, 16)', current_colormap()))
         open(f, `ffmpeg -v 0 -i pipe:0 -i $palette -lavfi paletteuse=dither=sierra2_4a -y $filename`, "w")
         return AnimGIF(filename)
     else # mp4
