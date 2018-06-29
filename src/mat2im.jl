@@ -4,7 +4,7 @@ import IndirectArrays: IndirectArray
 import MappedArrays: mappedarray
 #import FileIO: save
 
-const CURRENT_COLORMAP = ColorSchemes.colormap("Blues", 256)
+const CURRENT_COLORMAP = colormap("Blues", 256)
 current_colormap() = CURRENT_COLORMAP
 
 function set_colormap(cmap::AbstractVector{T}) where T <:Colorant
