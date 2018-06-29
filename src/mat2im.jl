@@ -39,8 +39,8 @@ function Base.show(io::IO, ::MIME"text/html", anim::AnimMP4)
 end
 
 function openanim(f::Function, filename::String="out.mp4")
-    ext = lowercase(Base.Filesystem.splitext(filename)[2][2:end])
     filename = abspath(filename)
+    ext = lowercase(Base.Filesystem.splitext(filename)[2][2:end])
     
     if ext == "gif"
         palette = tempname() * ".bmp"
@@ -53,6 +53,6 @@ function openanim(f::Function, filename::String="out.mp4")
     end
 end
 
-function addframe(anim, img::AbstractMatrix)
-    save(Stream(format"BMP", anim), img)
+function addframe(io, img::AbstractMatrix)
+    save(Stream(format"BMP", io), img)
 end
