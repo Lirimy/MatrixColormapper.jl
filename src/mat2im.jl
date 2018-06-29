@@ -1,51 +1,23 @@
-import ColorTypes: Colorant
-import Plots: frame
-import FileIO: save
+import ColorTypes: Colorant, RGB
+import ColorSchemes: colormap
 import IndirectArrays: IndirectArray
+import MappedArrays: mappedarray
+#import FileIO: save
 
-using Plots
+const CURRENT_COLORMAP = ColorSchemes.colormap("Blues", 256)
+current_colormap() = CURRENT_COLORMAP
 
-mutable struct CurrentColorMap
-    cs::AbstractVector{T} where T <: Colorant
-end
-
-const ccmap = CurrentColorMap(AbstractVector{Colorant}([]))
-const value_range = [0., 1.]
-
-function set_colormap(cg=:blues, n=31)
-    ccmap.cs = RGB.(getindex.(cgrad(cg), linspace(0, 1, n)))
-end
-
-function set_cm_range(vmin::T, vmax::T) where T <: Real
-    if vmin > vmax
-        vmin, vmax = vmax, vmin
-    end
-    value_range .= vmin, vmax
-end
-
-function matshow(A::AbstractMatrix{T}, mode="none"::AbstractString) where T <: Real
-    if length(ccmap.cs) == 0
-        set_colormap()
-    end
+function set_colormap(cmap::AbstractVector{T}) where T <:Colorant
     
-    if mode=="auto"
-        vmin, vmax = minimum(A), maximum(A)
-        An = (A - vmin) / (vmax - vmin)
-    elseif mode=="range"
-        vmin, vmax = value_range
-        An = (A - vmin) / (vmax - vmin)
-    else # mode=="none"
-        An = A
+    if(length(cmap) == 256)
+        @. CURRENT_COLORMAP = RGB(cmap)
     end
-    
-    n = length(ccmap.cs)
-    #getindex(ccmap.cs, clamp.(ceil.(Int, n*An), 1, n))
-    IndirectArray(clamp.(ceil.(Int, n*An), 1, n), ccmap.cs)
+    CURRENT_COLORMAP
 end
 
-function Plots.frame(anim::Animation, img::AbstractMatrix{T}) where T<:Colorant
-    i = length(anim.frames) + 1
-    filename = @sprintf("%06d.png", i)
-    save(joinpath(anim.dir, filename), img)
-    push!(anim.frames, filename)
+function matshow(A::AbstractMatrix{T}; cmap=current_colormap()) where T <: Real
+    @assert length(cmap) == 256 "Colormap's length must be 256, got $(length(cmap))"
+    
+    f = s -> clamp.(ceil.(Int, 256*s), 1, 256)
+    IndirectArray(mappedarray(f, A), cmap)
 end
