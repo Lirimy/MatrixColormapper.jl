@@ -18,6 +18,6 @@ end
 function matshow(A::AbstractMatrix{T}; cmap=current_colormap()) where T <: Real
     @assert length(cmap) == 256 "Colormap's length must be 256, got $(length(cmap))"
     
-    f = s -> clamp.(ceil.(Int, 256*s), 1, 256)
+    f = s -> clamp(ceil(Int, 256*s), 1, 256)
     IndirectArray(mappedarray(f, A), cmap)
 end
