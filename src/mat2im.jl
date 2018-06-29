@@ -38,13 +38,13 @@ function Base.show(io::IO, ::MIME"text/html", anim::AnimMP4)
     write(io, "<video controls><source src=\"$(relpath(anim.filename))?$(rand())>\" type=\"video/mp4\"></video>")
 end
 
-function openanim(f::Function, filename::AbstractString="out.mp4")
+function openanim(f::Function, filename::String="out.mp4")
     ext = lowercase(Base.Filesystem.splitext(filename)[2][2:end])
     filename = abspath(filename)
     
     if ext == "gif"
         palette = tempname() * ".bmp"
-        save(palette, IndirectArrays.IndirectArray(reshape(1:256, 16, 16)', current_colormap()))
+        save(palette, IndirectArray(reshape(1:256, 16, 16)', current_colormap()))
         open(f, `ffmpeg -v 0 -i pipe:0 -i $palette -lavfi paletteuse=dither=sierra2_4a -y $filename`, "w")
         return AnimGIF(filename)
     else # mp4
