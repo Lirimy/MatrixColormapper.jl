@@ -4,6 +4,9 @@
 
 MatrixColormapper.jl converts matrices to images, according to colormap.
 
+[Raindrop example](examples/raindrops.jl.ipynb) with [PerceptualColourMaps.jl](https://github.com/peterkovesi/PerceptualColourMaps.jl)  
+![raindrops](examples/rain.gif)
+
 ## Installation
 
 Julia 0.6.x  
@@ -52,7 +55,7 @@ using MatrixColormapper
 using ColorSchemes
 
 schemes # List color schemes
-set_colormap(ColorSchemes.alpine, 256) # Confirm 256 colors
+set_colormap(ColorSchemes.colormap("RdBu", 256)) # Confirm 256 colors
 ```
 
 ## Acknowledgments
