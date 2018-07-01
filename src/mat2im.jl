@@ -42,7 +42,7 @@ function Base.show(io::IO, ::MIME"text/html", anim::AnimationFile)
     nothing
 end
 
-function openanim(f::Function, filename::String="out.mp4")
+function openanim(f::Function, filename::String="out.mp4")::AnimationFile
     filename = abspath(filename)
     ext = file_extension(filename)
     
