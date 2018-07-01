@@ -5,16 +5,13 @@ else
     using Test
 end
 
-using Plots
 
-bnw = [RGB{Float64}(i, i, i) for i in [0.1, 0.9]]
-set_colormap(bnw, 3)
-@test MatrixColormapper.ccmap.cs[2] == RGB{Float64}(0.5, 0.5, 0.5)
+img = Array(matshow([0. 0.3; 0.7 1.]))
+@test img[2].g ≈ 0.5269898088662904
 
-img = matshow([0 0; 1 1])
-@test typeof(img[1]) == ColorTypes.RGB{Float64}
+fn = tempname() * ".mp4"
+anim = openanim(fn) do aio
+    addframe(aio, img)
+end
 
-anim = Animation()
-frame(anim, img)
-@test typeof(gif(anim, joinpath(anim.dir, "tmp.gif"))) == Plots.AnimatedGif
-@test typeof(mp4(anim, joinpath(anim.dir, "tmp.mp4"))) == Plots.AnimatedGif
+@test typeof(anim) == MatrixColormapper.AnimationFile
