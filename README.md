@@ -4,6 +4,9 @@
 
 MatrixColormapper.jl converts matrices to images, according to colormap.
 
+[Raindrop example](example/raindrops.jl.ipynb)
+![raindrops](examples/rain.gif)
+
 ## Installation
 
 Julia 0.6.x  
