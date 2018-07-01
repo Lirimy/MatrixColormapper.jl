@@ -3,9 +3,11 @@ __precompile__(true)
 module MatrixColormapper
 
 	export
+		current_colormap,
 		set_colormap,
-		set_cm_range,
-		matshow
+		matshow,
+		openanim,
+		addframe
 	
 	include("mat2im.jl")
 
