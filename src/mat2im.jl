@@ -22,7 +22,7 @@ function matshow(A::AbstractMatrix{T}; cmap=current_colormap()) where T <: Real
     IndirectArray(mappedarray(f, A), cmap)
 end
 
-file_extension(fn) = lower(Base.Filesystem.splitext(fn)[2][2:end])
+file_extension(fn) = lowercase(Base.Filesystem.splitext(fn)[2][2:end])
 
 struct AnimationFile
     filename::String
