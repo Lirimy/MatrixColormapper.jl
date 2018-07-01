@@ -4,7 +4,7 @@
 
 MatrixColormapper.jl converts matrices to images, according to colormap.
 
-[Raindrop example](example/raindrops.jl.ipynb)
+[Raindrop example](examples/raindrops.jl.ipynb) with [PerceptualColourMaps.jl](https://github.com/peterkovesi/PerceptualColourMaps.jl)  
 ![raindrops](examples/rain.gif)
 
 ## Installation
