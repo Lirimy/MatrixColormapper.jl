@@ -38,6 +38,8 @@ function Base.show(io::IO, ::MIME"text/html", anim::AnimationFile)
     else
         error("Only support mp4/gif: $ext")
     end
+    
+    nothing
 end
 
 function openanim(f::Function, filename::String="out.mp4")
