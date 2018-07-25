@@ -55,7 +55,7 @@ using MatrixColormapper
 using ColorSchemes
 
 schemes # List color schemes
-set_colormap(ColorSchemes.deeprainbow)
+set_colormap(ColorSchemes.darkrainbow)
 ```
 
 ## Acknowledgments
