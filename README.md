@@ -55,7 +55,7 @@ using MatrixColormapper
 using ColorSchemes
 
 schemes # List color schemes
-set_colormap(ColorSchemes.colormap("RdBu", 256)) # Confirm 256 colors
+set_colormap(ColorSchemes.deeprainbow)
 ```
 
 ## Acknowledgments
