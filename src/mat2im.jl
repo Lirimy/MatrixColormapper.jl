@@ -11,6 +11,8 @@ function set_colormap(cmap::AbstractVector{T}) where T <:Colorant
     
     if(length(cmap) == 256)
         @. CURRENT_COLORMAP = RGB(cmap)
+    elseif
+        CURRENT_COLORMAP .= get(RGB.(cmap), [0:255;]/255)
     end
     CURRENT_COLORMAP
 end
